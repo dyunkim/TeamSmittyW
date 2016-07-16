@@ -1,0 +1,49 @@
+.background {
+	background-color: lightgray;
+	min-width: 1150px;
+}
+
+/*Main body styling*/
+.main {
+	text-align: center;
+}
+.main-title {
+	color: #D77A1E;
+	font-size: 50px;
+}
+.main-icon {
+	color: indigo;
+	font-size: 30px;
+}
+.main-text {
+	font-size: 30px;
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 50px;
+}
+.main-songs {
+	margin-bottom: 40px;
+}
+.main-albums {
+	margin-bottom: 60px;
+}
+.songs-button {
+	border: 2px solid gray;
+	border-radius: 5px;
+	background-color: darkorange;
+	width: 30%;
+}
+.songs-button:hover {
+	background-color: darkorange;
+	border-color: indigo;
+}
+.albums-button {
+	border: 2px solid gray;
+	border-radius: 5px;
+	background-color: darkorange;
+	width: 30%;
+}
+.albums-button:hover {
+	background-color: darkorange;
+	border-color: indigo;
+}
