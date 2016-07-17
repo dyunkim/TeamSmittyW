@@ -1,5 +1,5 @@
 /*Header styling*/
-.header {
+#header {
 	font-size: 15px !important;
 	border-bottom: 1px solid darkgray;
 }
@@ -41,6 +41,18 @@
     margin-bottom: 0;
 }
 .header-logout {
+    color: indigo;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+.header-signup {
+    color: indigo;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+.header-login {
     color: indigo;
     padding-top: 15px;
     padding-bottom: 15px;

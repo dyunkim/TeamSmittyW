@@ -47,3 +47,17 @@
 	background-color: darkorange;
 	border-color: indigo;
 }
+
+/*All Files styling*/
+.songs {
+	text-align: center;
+}
+.songs-title {
+	color: #D77A1E;
+}
+.albums {
+	text-align: center;
+}
+.albums-title {
+	color: #D77A1E;
+}
