@@ -6,21 +6,23 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="/public/css/main.css" type="text/css" />
 		<link rel="stylesheet" href="/public/css/header.css" type="text/css" />
+		<link rel="stylesheet" href="/public/css/myfiles.css" type="text/css" />
+		<link rel="stylesheet" href="/public/css/allfiles.css" type="text/css" />
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
-		<script type='text/javascript' src="/controllers/headerHandler.js"></script> 
+		<script type='text/javascript' src="/controllers/headerHandler.js"></script>
+		<script type='text/javascript' src="/controllers/fileHandler.js"></script>
 	</head>
 	
 	<body class="background fluid-container">
 		<div id="header"></div>
 		
-		<div class="songs">
-			<h1 class="songs-title">Songs</h1>
-			<div id="songs-list"></div>
-		</div>
-		<div class="albums">
-			<h1 class="albums-title">Albums</h1>
-			<div id="albums-list"></div>
+		<div id="myfiles">
+			<h1 class="songs">Songs</h1>
+			<div id="myfiles-songs"></div>
+			
+			<h1 class="albums">Albums</h1>
+			<div id="myfiles-albums"></div>
 		</div>
 	</body>
 </html>

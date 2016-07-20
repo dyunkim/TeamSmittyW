@@ -1,0 +1,62 @@
+.file-title-song {
+    font-size: 90%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 20%;
+}
+.playing-title {
+    font-size: 90%;
+    text-align: center;
+    margin-left: 7px;
+    position: relative;
+    z-index: 2;
+    margin-top: 7px;
+    color: darkorange;
+}
+.file-artist-song {
+    text-align: center;
+    font-size: 90%;
+    position: relative;
+    z-index: 2;
+}
+.playing-artist {
+    text-align: center;
+    margin-left: 10px;
+    font-size: 90%;
+    position: relative;
+    z-index: 2;
+    color: darkorange;
+}
+.file-title-album {
+    font-size: 90%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 20%;
+}
+.file-artist-album {
+    text-align: center;
+    font-size: 90%;
+    position: relative;
+    z-index: 2;
+}
+.file-img {
+    margin-left: -14px;
+    margin-top: 1px;
+}
+.playing {
+    margin-left: 39%;
+    color: indigo;
+    background-color: lightgray;
+    border: none;
+    font-size: 25px;
+    z-index: 1;
+    position: relative;
+    margin-top: -12px;
+}
+.playing:hover, .playing:focus, .playing.focus, .playing:active, .playing:visited, .playing.active.focus, .playing:active:focus, .playing.active:focus{
+    background-color: lightgray;
+    outline: 0;
+    color: indigo;
+}

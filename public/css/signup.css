@@ -1,0 +1,13 @@
+.signup-title {
+    font-size: 35px;
+}
+
+#name-input {
+    width: 70%;
+}
+#email-input {
+    width: 70%;
+}
+#password-input {
+    width: 70%;
+}
