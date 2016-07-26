@@ -6,12 +6,31 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="/public/css/main.css" type="text/css" />
 		<link rel="stylesheet" href="/public/css/header.css" type="text/css" />
+		<link rel="stylesheet" href="/public/css/login.css" type="text/css" />
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
 		<script type='text/javascript' src="/controllers/headerHandler.js"></script> 
+		<script type='text/javascript' src="/controllers/loginHandler.js"></script>
 	</head>
 	
 	<body class="background fluid-container">
 		<div id="header"></div>
+		
+		<h1 class="signup-title">Login</h1>
+		<form action="/auth" method="post">
+			<div class="email form-group">
+				<label class="email-text" for="email-input">Email</label>
+				<input type="text" class="form-control" name="email" id="email-input">
+			</div>
+			<div class="password form-group">
+				<label class="password-text" for="password-input">Password</label>
+				<input type="password" class="form-control" name="pass" id="password-input">
+			</div>
+			
+			<button type="submit" class="btn btn-primary" id="login-btn">Login</button>
+			<a href="/signup" class="btn btn-secondary signup-btn">Register</button>
+		</form>
+		
+		
 	</body>
 </html>

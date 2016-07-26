@@ -6,12 +6,40 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="/public/css/main.css" type="text/css" />
 		<link rel="stylesheet" href="/public/css/header.css" type="text/css" />
+		<link rel="stylesheet" href="/public/css/settings.css" type="text/css" />
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
 		<script type='text/javascript' src="/controllers/headerHandler.js"></script> 
+		<script type='text/javascript' src="/controllers/settingsHandler.js"></script>
 	</head>
 	
 	<body class="background fluid-container">
 		<div id="header"></div>
+		
+		<h1 class="update-profile">Update Profile</h1>
+		<div class="name form-group">
+			<label class="name-text" for="name-input">Name</label>
+			<input type="text" class="form-control" id="name-input">
+		</div>
+		<div class="city form-group">
+			<label class="city-text" for="city-input">City</label>
+			<input type="text" class="form-control" id="city-input">
+		</div>
+		<div class="state form-group">
+			<label class="state-text" for="state-input">State</label>
+			<input type="text" class="form-control" id="state-input">
+		</div>
+		<button id="updateinfo" class="btn btn-primary save-btn">Save Changes</button>
+		
+		<h1 class="update-password">Update Password</h1>
+		<div class="oldpass form-group">
+			<label class="oldpass-text" for="oldpass-input">Current Password</label>
+			<input type="password" class="form-control" id="oldpass-input">
+		</div>
+		<div class="newpass form-group">
+			<label class="newpass-text" for="newpass-input">New Password</label>
+			<input type="password" class="form-control" id="newpass-input">
+		</div>
+		<button id="changepass" class="btn btn-primary bottom save-btn">Save Changes</button>
 	</body>
 </html>

@@ -27,11 +27,11 @@
     margin-left: 10%;
 }
 
-#signup-btn {
+#login-btn {
     margin-top: 30px;
     margin-left: 10%;
 }
-.login-btn {
+.signup-btn {
    background-color: darkgray;
    border: 1px solid white;
    margin-top: 30px;

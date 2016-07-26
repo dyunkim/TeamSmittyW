@@ -60,3 +60,26 @@
     outline: 0;
     color: indigo;
 }
+
+
+.unseen {
+    position: absolute;
+    visibility: hidden;
+    top: 30px;
+    margin-left: 95px;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+.request {
+    color: darkorange;
+    font-family: cursive;
+    font-size: 18px;
+    visibility: visible;
+}
+.request:hover {
+    color: maroon !important;
+}
+.col-xs-2:hover .request {
+    color: blue;
+}

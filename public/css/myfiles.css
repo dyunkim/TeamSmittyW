@@ -70,6 +70,7 @@
 
 .file-row {
     margin-top: 50px;
+    position: relative;
 }
 .col-xs-2 {
     height: 106px;
@@ -200,4 +201,19 @@
     background-color: lightgray;
     outline: 0;
     color: indigo;
+}
+
+/*Footer styling*/
+.footer {
+  margin-top: 70px;
+  background-color: lightgray;
+  font-size: 15px;
+  color: indigo;
+}
+.author {
+  color: darkorange;
+}
+.author:hover {
+  text-decoration: none;
+  color: maroon;
 }

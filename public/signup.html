@@ -9,25 +9,29 @@
 		<link rel="stylesheet" href="/public/css/signup.css" type="text/css" />
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
-		<script type='text/javascript' src="/controllers/headerHandler.js"></script> 
+		<script type='text/javascript' src="/controllers/headerHandler.js"></script>
+		<script type='text/javascript' src="/controllers/signupHandler.js"></script>
 	</head>
 	
 	<body class="background fluid-container">
 		<div id="header"></div>
 		
 		<h1 class="signup-title">Sign up</h1>
-		<div class="name">
-			<p class="name-text">Name</p>
-			<input type="text" id="name-input">
+		<div class="name form-group">
+			<label class="name-text" for="name-input">Name</label>
+			<input type="text" class="form-control" id="name-input">
 		</div>
-		<div class="email">
-			<p class="email-text">Email</p>
-			<input type="text" id="email-input">
+		<div class="email form-group">
+			<label class="email-text" for="email-input">Email</label>
+			<input type="text" class="form-control" name="email" id="email-input">
 		</div>
-		<div class="password">
-			<p class="password-text">Password</p>
-			<input type="password" id="password-input">
+		<div class="password form-group">
+			<label class="password-text" for="password-input">Password</label>
+			<input type="password" class="form-control" name="pass" id="password-input">
 		</div>
+		
+		<button type="submit" id="signup-btn" class="btn btn-primary">Sign up</button>
+		<a href="/login" class="btn btn-secondary login-btn">Login</button>
 		
 	</body>
 </html>
