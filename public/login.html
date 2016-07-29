@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>.mp3trade</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="/public/css/main.css" type="text/css" />
@@ -10,7 +11,15 @@
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
 		<script type='text/javascript' src="/controllers/headerHandler.js"></script> 
-		<script type='text/javascript' src="/controllers/loginHandler.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("#password-input").keyup(function (event) {
+			        if(event.keyCode == 13){
+			            $("#login-btn").click();
+			        }
+			    });	
+			});
+		</script>
 	</head>
 	
 	<body class="background fluid-container">

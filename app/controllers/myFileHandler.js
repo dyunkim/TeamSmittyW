@@ -22,24 +22,13 @@ $(document).ready(function () {
                     success: listMyFiles
                 }); 
             }
+            else {
+                window.location = "/";
+            }
         }
     });
-    
-    // list requests on page load
-    setTimeout(function () {
-        $.ajax({
-            type: "POST",
-            url: "/mytrades",
-            data: {userID: userID},
-            success: function (data) {
-                if (data[0].outRequests)
-                    $("#my-requests").html("MP3s You Want (" + data[0].outRequests.length + ")");
-                if (data[0].inRequests)
-                    $("#other-requests").html("MP3 Requests For You (" + data[0].inRequests.length + ")");
-            }
-        });
-    }, 250);
-    
+
+
     
      //play MP3 song preview
     $("#myfiles-songs").on("click", ".play", function (event) {
@@ -106,7 +95,6 @@ $(document).ready(function () {
     //remove file and redraw
     $("#myfiles").on("click", function (event) {
         var fileID = event.target.id;
-        var userID = $("#add-file").val();
         if (fileID.length > 0 && fileID.substr(0, 6) !== "option" && fileID !== "myfiles") {
             if (audio.length !== 0) {
                 audio.pause();

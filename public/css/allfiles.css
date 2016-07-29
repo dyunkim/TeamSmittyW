@@ -1,3 +1,25 @@
+.div-text {
+    margin-left: 10%;
+    color: indigo;
+}
+.div-text-top {
+    margin-top: 50px;
+}
+
+.songs {
+    font-family: 'Montserrat';
+}
+.albums {
+    font-family: 'Montserrat';
+}
+#album {
+    display: block;
+    padding-top: 0;
+    top: 80px !important;
+    visibility:hidden;
+
+}
+
 .file-title-song {
     font-size: 90%;
     text-align: center;

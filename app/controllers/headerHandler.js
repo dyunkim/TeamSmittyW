@@ -39,7 +39,7 @@ function headers (data) {
         $(".header-home").css({"background-color": "darkgray"});
     } 
    
-    else if (window.location.href == "https://mp3trade-bartowski20.c9users.io/all") {
+    else if (window.location.href == "https://mp3trade-bartowski20.c9users.io/all" || window.location.href == "https://mp3trade-bartowski20.c9users.io/all#album") {
         if (data["_id"]) {
             $("#header").html(header1);
             $(".header-all").css({"background-color": "darkgray"});

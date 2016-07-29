@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>.mp3trade</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' />
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="/public/css/main.css" type="text/css" />
@@ -17,17 +18,20 @@
 		<div id="header"></div>
 		
 		<h1 class="signup-title">Sign up</h1>
+		
+		<p id="flash"></p>
+		
 		<div class="name form-group">
 			<label class="name-text" for="name-input">Name</label>
-			<input type="text" class="form-control" id="name-input">
+			<input type="text" class="form-control" maxlength="100" id="name-input">
 		</div>
 		<div class="email form-group">
 			<label class="email-text" for="email-input">Email</label>
-			<input type="text" class="form-control" name="email" id="email-input">
+			<input type="text" class="form-control" maxlength="100" name="email" id="email-input">
 		</div>
 		<div class="password form-group">
 			<label class="password-text" for="password-input">Password</label>
-			<input type="password" class="form-control" name="pass" id="password-input">
+			<input type="password" class="form-control" maxlength="100" name="pass" id="password-input">
 		</div>
 		
 		<button type="submit" id="signup-btn" class="btn btn-primary">Sign up</button>

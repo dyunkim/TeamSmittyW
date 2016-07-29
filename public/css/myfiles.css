@@ -26,11 +26,40 @@
     background-color: green;
     color: white;
 }
-.addfiles {
+.request-item {
     margin-left: 10%;
+}
+.request-title {
+    margin-top: 7px;
+    text-align: right;
+}
+.col-xs-3 {
+    text-align: right;
+}
+.highlight {
+    color: indigo;
+}
+.nothingtext {
+    margin-left: 10%;
+    color: indigo;
+    font-family: fantasy;
+}
+.cancel {
+    background-color: lightgray;
+    border-color: darkorange;
+}
+.complete {
+    background-color: lightgray;
+    border-color: green;
 }
 
 
+.addfiles {
+    margin-left: 10%;
+}
+.addfiles-title {
+    font-family: "Montserrat";
+}
 .input-group {
     width: 19%;
 }
@@ -52,6 +81,11 @@
     width: 100%;
     margin-top: -10px;
 }
+.powered {
+    margin-left: 5%;
+    color: indigo;
+    font-family: fantasy;
+}
 
 .songs {
     margin-left: 10%;
@@ -59,6 +93,7 @@
     margin-bottom: -20px;
     text-align: left;
     color: darkorange;
+    font-family: "Montserrat";
 }
 .albums {
     margin-left: 10%;
@@ -66,6 +101,7 @@
     margin-bottom: -20px;
     text-align: left;
     color: darkorange;
+    font-family: "Montserrat";
 }
 
 .file-row {

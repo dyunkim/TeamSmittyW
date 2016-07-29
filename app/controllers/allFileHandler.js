@@ -6,16 +6,14 @@ var oldID = "";
 $(document).ready(function () {
     
     // list myfiles on page load
-    if (window.location.href === "https://mp3trade-bartowski20.c9users.io/all") {
-        setTimeout(function () {
-            $.ajax({
-                type: "POST",
-                url: "/all",
-                error: errHandler,
-                success: listAllFiles
-            }); 
-        }, 250);
-    }
+    setTimeout(function () {
+        $.ajax({
+            type: "POST",
+            url: "/all",
+            error: errHandler,
+            success: listAllFiles
+        }); 
+    }, 250);
     
     
      //play MP3 song preview
@@ -83,7 +81,12 @@ $(document).ready(function () {
 
 
 function listAllFiles (data) {
-
+        if (data.user !== "") {
+            var info_text = '<p class="div-text div-text-top">To request a file, click on its corresponding';
+            info_text += '<span class="request">Request</span> button.</p><p class="div-text">';
+            info_text += 'Your email will be shared with the owner of the file, who can then send the file to you!</p>';
+            $("#info").html(info_text);
+        }
         var html1 = '<div id="btn';
         var html2 = '" class="col-xs-2">';
         var html3 = '<div class="row file-info"><div class="col-xs-4"><img class="file-img" src="';
@@ -97,7 +100,6 @@ function listAllFiles (data) {
         
         for (var l=0; l < data.docs.length; l++) {
             // handle songs first
-            alert(l);
             if (data.docs[l].songs) {
                 html4 = '"></div><div class="col-xs-8"><p class="file-title-song"';
                 html5 = '<p class="file-artist-song"';
@@ -170,7 +172,6 @@ function listAllFiles (data) {
                 }
             }
         }
-    alert(htmlSongs[0]);
     // draw out results to proper div
     $("#allfiles-songs").html(htmlSongs[0]);
     $("#allfiles-albums").html(htmlAlbums[0]);

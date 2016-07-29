@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title .mp3trade
+    link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', ,='', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/public/css/main.css', type='text/css')
+    link(rel='stylesheet', href='/public/css/header.css', type='text/css')
+    link(rel='stylesheet', href='/public/css/login.css', type='text/css')
+    script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+    script(type='text/javascript', src='/controllers/headerHandler.js')
+    script.
+      $(document).ready(function () {
+      $("#password-input").keyup(function (event) {
+      if(event.keyCode == 13){
+      $("#login-btn").click();
+      }
+      });
+      });
+  body.background.fluid-container
+    #header
+    h1.signup-title Login
+    
+    p.flash #{message}
+    
+    form(action='/auth', method='post')
+      .email.form-group
+        label.email-text(for='email-input') Email
+        |  
+        input#email-input.form-control(type='text', name='email')
+      .password.form-group
+        label.password-text(for='password-input') Password
+        |  
+        input#password-input.form-control(type='password', name='pass')
+      |  
+      button#login-btn.btn.btn-primary(type='submit') Login
+      |  
+      a.btn.btn-secondary.signup-btn(href='/signup') Register

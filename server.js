@@ -9,6 +9,8 @@ var mongo = require("mongodb").MongoClient;
 var ObjectId = require("mongodb").ObjectId;
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var validator = require("validator");
+var flash=require("connect-flash");
 var app = express();
 
 mongo.connect(process.env.MONGO_URI, function (err, db) {
@@ -19,6 +21,7 @@ mongo.connect(process.env.MONGO_URI, function (err, db) {
     app.use(session({ secret: process.env.SESS_SECRET }));
 	  app.use(passport.initialize());
 	  app.use(passport.session());
+	  app.use(flash());
     routes(app, db);
     
     
@@ -27,18 +30,24 @@ mongo.connect(process.env.MONGO_URI, function (err, db) {
         passwordField: 'pass'
       },
       function(username, password, done) {
+        if (validator.isEmail(username)) {
           var clients = db.collection("clients");
           clients.findOne({ email: username }, function (err, user) {
             if (err) { return done(err); }
             if (!user) {
-              return done(null, false, { message: 'Incorrect username.' });
+              return done(null, false, { message: 'Incorrect email.' });
             }
-            if (user.pass !== password) {
+            if (user.pass !== validator.escape(password)) {
+              console.log(user.pass);
               return done(null, false, { message: 'Incorrect password.' });
             }
             return done(null, user);
           });
         }
+        else {
+          return done(null, false, { message: 'Invalid email.' });
+        }
+      }
     ));
     
     

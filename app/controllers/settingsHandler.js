@@ -24,7 +24,13 @@ $(document).ready(function () {
             url: "/settings",
             data: {userID: userID, name: name, city: city, state: state},
             success: function (data) {
-                alert("Profile successfully updated.");
+                if (data !== "success") {
+                    alert("The " + data + " field contains invalid characters, please only use alphanumeric characters in your profile!");
+                }
+                else {
+                    alert("Profile successfully updated.");
+                }
+                
             }
         });
     });

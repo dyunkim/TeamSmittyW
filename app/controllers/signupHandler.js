@@ -10,9 +10,23 @@ $(document).ready(function () {
             url: "/signup",
             data: {name: name, email: email, pass: pass},
             error: errHandler,
-            success: function (data) {window.location = "/login"}
+            success: function (data) {
+                if (data !== "ok") {
+                    $("#flash").html(data);
+                }
+                else {
+                    window.location = "/login";
+                }
+            }
         }); 
-    }); 
+    });
+    
+    
+	$("#password-input").keyup(function (event) {
+        if(event.keyCode == 13){
+            $("#signup-btn").click();
+        }
+    });	
 });
 
 
