@@ -5,6 +5,7 @@ $(document).ready(function () {
         var name = $("#name-input").val();
         var email = $("#email-input").val();
         var pass = $("#password-input").val();
+        
         $.ajax({
             type: "POST",
             url: "/signup",

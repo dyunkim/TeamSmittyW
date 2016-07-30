@@ -6,6 +6,7 @@ module.exports = function (app, db) {
 	var passport = require("passport");
 	var flash=require("connect-flash");
 	var validator = require("validator");
+	var bcrypt = require("bcrypt-nodejs");
 	app.use(flash());
 	
 	app.route("/")
@@ -105,7 +106,7 @@ module.exports = function (app, db) {
 			var userID = req.body.userID;
 			var data = {};
 			if (req.body.name.length > 1) {
-				if (validator.isAlphanumeric(req.body.name))
+				if (validator.matches(req.body.name, /^[\w\-\s]+$/))
 					data.name = req.body.name;
 				else {
 					res.send("Name");
@@ -113,7 +114,7 @@ module.exports = function (app, db) {
 				}
 			}
 			if (req.body.city.length > 1) {
-				if (validator.isAlphanumeric(req.body.city))
+				if (validator.matches(req.body.city, /^[\w\-\s]+$/))
 					data.city = req.body.city;
 				else {
 					res.send("City");
@@ -121,7 +122,7 @@ module.exports = function (app, db) {
 				}
 			}
 			if (req.body.state.length > 1) {
-				if (validator.isAlphanumeric(req.body.state))
+				if (validator.matches(req.body.state, /^[\w\-\s]+$/))
 					data.state = req.body.state;
 				else {
 					res.send("State");
@@ -149,8 +150,16 @@ module.exports = function (app, db) {
 					}
 					else {
 						var pass = validator.escape(req.body.pass);
-						clients.insert({email: req.body.email, pass: pass, name: req.body.name});
-						res.send("ok");
+						// bcrypt.genSalt(10, function(err, salt) {
+						// 	console.log("here");
+						//     if (err) throw err;
+						    bcrypt.hash(pass, null, null, function(err, hash) {
+						    	if (err) throw err;
+						      clients.insert({email: req.body.email, pass: hash, name: req.body.name});
+						      res.send("ok");
+						    });
+						  //});
+						// clients.insert({email: req.body.email, pass: pass, name: req.body.name});
 					}
 				});
 				
@@ -190,7 +199,8 @@ module.exports = function (app, db) {
 				searchItunes(searchParams, function (err, data) {
 					if (err) {
 					    console.log (err);
-					    res.send(err);
+					    res.send("no data");
+					    return;
 					}
 
 					var data_info = {
@@ -265,13 +275,32 @@ module.exports = function (app, db) {
 		var clients = db.collection("clients");
 		clients.find({"_id": ObjectId(req.body.userID)}).toArray(function (err, docs) {
 			console.log(oldPass);
-			if (docs[0].pass == validator.escape(oldPass)) {
-				clients.update({"_id": ObjectId(req.body.userID)}, {$set: {pass: newPass}});
-				res.send("success");
-			}
-			else {
-				res.send("invalid");
-			}
+			
+			// compare old password to new password
+			bcrypt.compare(validator.escape(oldPass), docs[0].pass, function(err, isPasswordMatch) {
+		      if (err) throw err;
+		      // if match, encrypt and store new password
+		      if (isPasswordMatch) {
+		      //	bcrypt.genSalt(10, function(err, salt) {
+				    // if (err) throw err;
+				    bcrypt.hash(newPass, null, null, function(err, hash) {
+				    	clients.update({"_id": ObjectId(req.body.userID)}, {$set: {pass: hash}});
+						res.send("success");
+				    });
+				  //});
+		      }
+		      else {
+		      	res.send("invalid");
+		      }
+			});
+			
+			// if (docs[0].pass == validator.escape(oldPass)) {
+			// 	clients.update({"_id": ObjectId(req.body.userID)}, {$set: {pass: newPass}});
+			// 	res.send("success");
+			// }
+			// else {
+			// 	res.send("invalid");
+			// }
 		});
 	});
 	
@@ -390,5 +419,13 @@ module.exports = function (app, db) {
 			});
 		}, 500);
 	});
+	
+	// app.get("/delete", function (req, res) {
+	// 	var clients = db.collection("clients");
+	// 	var files = db.collection("files");
+	// 	clients.drop();
+	// 	files.drop();
+	// 	res.send("all over");
+	// });
 		
 };

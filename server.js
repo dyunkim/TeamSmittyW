@@ -11,6 +11,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var validator = require("validator");
 var flash=require("connect-flash");
+var bcrypt = require("bcrypt-nodejs");
 var app = express();
 
 mongo.connect(process.env.MONGO_URI, function (err, db) {
@@ -30,25 +31,45 @@ mongo.connect(process.env.MONGO_URI, function (err, db) {
         passwordField: 'pass'
       },
       function(username, password, done) {
-        if (validator.isEmail(username)) {
+        
+        // first check email is valid format
+        if (!validator.isEmail(username)) {
+          return done(null, false, { message: 'Invalid email.' });
+        }
+        
+        else {
           var clients = db.collection("clients");
           clients.findOne({ email: username }, function (err, user) {
             if (err) { return done(err); }
+            
+            // check for user with provided email
             if (!user) {
               return done(null, false, { message: 'Incorrect email.' });
             }
-            if (user.pass !== validator.escape(password)) {
-              console.log(user.pass);
-              return done(null, false, { message: 'Incorrect password.' });
-            }
-            return done(null, user);
+            
+            // check if password matches email account
+            bcrypt.compare(validator.escape(password), user.pass, function(err, isPasswordMatch) {
+              if (err) throw err;
+              if (!isPasswordMatch) {
+                console.log(user.pass);
+                return done(null, false, { message: 'Incorrect password.' });
+              }
+              else {
+                return done(null, user);
+              }
+           });
           });
+            
+        //     if (user.pass !== validator.escape(password)) {
+        //       console.log(user.pass);
+        //       return done(null, false, { message: 'Incorrect password.' });
+        //     }
+        //     return done(null, user);
+        //   });
+        // }
         }
-        else {
-          return done(null, false, { message: 'Invalid email.' });
-        }
-      }
-    ));
+      }));
+
     
     
     passport.serializeUser(function(user, done) {  

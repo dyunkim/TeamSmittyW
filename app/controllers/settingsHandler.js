@@ -25,7 +25,7 @@ $(document).ready(function () {
             data: {userID: userID, name: name, city: city, state: state},
             success: function (data) {
                 if (data !== "success") {
-                    alert("The " + data + " field contains invalid characters, please only use alphanumeric characters in your profile!");
+                    alert("The " + data + " field contains invalid characters, please only use alphanumeric characters (and space) in your profile!");
                 }
                 else {
                     alert("Profile successfully updated.");

@@ -17,45 +17,83 @@
     padding-bottom: 15px;
     margin-bottom: 0;
 }
+.header-site:hover {
+    text-decoration: none;
+}
+
 .header-home {
     color: indigo;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 0;
 }
+.header-home:hover {
+    text-decoration: none;
+    color: #D77A1E;
+}
+
 .header-all {
     color: indigo;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 0;
 }
+.header-all:hover {
+    text-decoration: none;
+    color: #D77A1E;
+}
+
 .header-my {
     color: indigo;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 0;
 }
+.header-my:hover {
+    text-decoration: none;
+    color: #D77A1E;
+}
+
 .header-settings {
     color: indigo;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 0;
 }
+.header-settings:hover {
+    text-decoration: none;
+    color: #D77A1E;
+}
+
 .header-logout {
     color: indigo;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 0;
 }
+.header-logout:hover {
+    text-decoration: none;
+    color: #D77A1E;
+}
+
 .header-signup {
     color: indigo;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 0;
 }
+.header-signup:hover {
+    text-decoration: none;
+    color: #D77A1E;
+}
+
 .header-login {
     color: indigo;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 0;
+}
+.header-login:hover {
+    text-decoration: none;
+    color: #D77A1E;
 }
