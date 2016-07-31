@@ -113,6 +113,9 @@ module.exports = function (app, db) {
 					return;
 				}
 			}
+			else {
+				data.name = req.user.name;
+			}
 			if (req.body.city.length > 1) {
 				if (validator.matches(req.body.city, /^[\w\-\s]+$/))
 					data.city = req.body.city;
@@ -121,6 +124,9 @@ module.exports = function (app, db) {
 					return;
 				}
 			}
+			else {
+				data.city = req.user.city;
+			}
 			if (req.body.state.length > 1) {
 				if (validator.matches(req.body.state, /^[\w\-\s]+$/))
 					data.state = req.body.state;
@@ -128,6 +134,9 @@ module.exports = function (app, db) {
 					res.send("State");
 					return;
 				}
+			}
+			else {
+				data.state = req.user.state;
 			}
 			var clients = db.collection("clients");
 			clients.update({"_id": ObjectId(userID)}, {$set: {name: data.name, city: data.city, state: data.state}});
@@ -150,16 +159,11 @@ module.exports = function (app, db) {
 					}
 					else {
 						var pass = validator.escape(req.body.pass);
-						// bcrypt.genSalt(10, function(err, salt) {
-						// 	console.log("here");
-						//     if (err) throw err;
 						    bcrypt.hash(pass, null, null, function(err, hash) {
 						    	if (err) throw err;
 						      clients.insert({email: req.body.email, pass: hash, name: req.body.name});
 						      res.send("ok");
 						    });
-						  //});
-						// clients.insert({email: req.body.email, pass: pass, name: req.body.name});
 					}
 				});
 				
@@ -215,7 +219,6 @@ module.exports = function (app, db) {
 					var files = db.collection("files");
 					files.find({_id: ObjectId(userID), songs: {$elemMatch: data_info}}).toArray(function (err, docs) {
 						if (docs.length === 0) {
-						//	console.log(data_info);
 							files.update({_id: ObjectId(userID)}, {$push: {songs: data_info}}, {upsert: true});
 							res.send("success");
 						}
@@ -281,26 +284,15 @@ module.exports = function (app, db) {
 		      if (err) throw err;
 		      // if match, encrypt and store new password
 		      if (isPasswordMatch) {
-		      //	bcrypt.genSalt(10, function(err, salt) {
-				    // if (err) throw err;
 				    bcrypt.hash(newPass, null, null, function(err, hash) {
 				    	clients.update({"_id": ObjectId(req.body.userID)}, {$set: {pass: hash}});
 						res.send("success");
 				    });
-				  //});
 		      }
 		      else {
 		      	res.send("invalid");
 		      }
 			});
-			
-			// if (docs[0].pass == validator.escape(oldPass)) {
-			// 	clients.update({"_id": ObjectId(req.body.userID)}, {$set: {pass: newPass}});
-			// 	res.send("success");
-			// }
-			// else {
-			// 	res.send("invalid");
-			// }
 		});
 	});
 	

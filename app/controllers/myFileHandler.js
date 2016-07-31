@@ -1,6 +1,9 @@
 'use strict';
 
 var userID = "";
+var name = "";
+var city = "";
+var state = "";
 var audio = "";
 var oldID = "";
 
@@ -13,6 +16,12 @@ $(document).ready(function () {
         success: function (data) {
             if (data["_id"])
                 userID = data["_id"];
+            if (data["name"])
+                name = data["name"];
+            if (data["city"])
+                city = data["city"];
+            if (data["state"])
+                state = data["state"];
             if (userID !== "") {
                 $.ajax({
                     type: "POST",
@@ -28,7 +37,18 @@ $(document).ready(function () {
         }
     });
 
-
+    // write profile info to page
+    setTimeout(function () {
+        var html = '<p class="user-info">';
+        if (name !== "") 
+            html += "Currently logged in as " + name;
+        if (city !== "") 
+            html += " from " + city;
+        if (state !== "")
+            html += ", " + state;
+        $("#profile-info").html(html);
+    }, 750);
+    
     
      //play MP3 song preview
     $("#myfiles-songs").on("click", ".play", function (event) {

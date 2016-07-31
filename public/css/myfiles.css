@@ -12,6 +12,14 @@
 }
 
 /*Body styling*/
+.user-info {
+    text-align: right;
+    margin-top: 20px;
+    font-family: "Montserrat";
+    
+    margin-right: 60px;
+}
+
 .trades {
     margin-top: 40px;
     margin-left: 10%;
