@@ -59,14 +59,6 @@ mongo.connect(process.env.MONGO_URI, function (err, db) {
               }
            });
           });
-            
-        //     if (user.pass !== validator.escape(password)) {
-        //       console.log(user.pass);
-        //       return done(null, false, { message: 'Incorrect password.' });
-        //     }
-        //     return done(null, user);
-        //   });
-        // }
         }
       }));
 

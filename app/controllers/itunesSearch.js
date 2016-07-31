@@ -38,7 +38,7 @@ $(document).ready(function () {
                 return;
             }
         }
-       // var userID = $("#add-file").val();
+
         var url = "/itunes";
         var artist = $("#add-artist-input").val();
         $.ajax({
@@ -60,7 +60,6 @@ function errHandler (err) {
 
 function successHandler (data) {
     if (data === "success") {
-       // var userID = $("#add-file").val();
         $.ajax({
             type: "POST",
             url: "/my",

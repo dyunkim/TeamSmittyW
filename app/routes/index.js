@@ -11,7 +11,6 @@ module.exports = function (app, db) {
 	
 	app.route("/")
 		.get(function (req, res) {
-			console.log(JSON.stringify(req.user));
 			res.sendFile(process.cwd() + "/public/index.html");	
 		})
 		.post(function (req, res) {
@@ -31,11 +30,9 @@ module.exports = function (app, db) {
 		.post(function (req, res) {
 			var files = db.collection("files");
 			files.find().toArray(function (err, docs) {
-				console.log(docs);
 				var obj = {docs: docs, user: ""};
 				if (req.user) 
 					obj.user = req.user["_id"];
-				//console.log("aha " + JSON.stringify(obj));
 				res.send(obj);
 			});
 		});
@@ -44,7 +41,6 @@ module.exports = function (app, db) {
 	app.route("/my")
 		.get(function (req, res) {
 			if (req.user) {
-				console.log(req.user);
 			}
 			res.sendFile(process.cwd() + "/public/myfiles.html");		
 		})
@@ -89,7 +85,6 @@ module.exports = function (app, db) {
 			
 			// wait for removal, then send updated data to be displayed
 			setTimeout(function () {
-				console.log(userID);
 				files.find({_id: ObjectId(userID)}).toArray(function (err, docs) {
 					res.send(docs);	
 				});	
@@ -143,6 +138,7 @@ module.exports = function (app, db) {
 			res.send("success");
 		});
 		
+		
 	app.route("/signup")
 		.get(function (req, res) {
 			res.sendFile(process.cwd() + "/public/signup.html");	
@@ -169,6 +165,7 @@ module.exports = function (app, db) {
 				
 			}
 		});
+		
 		
 	app.route("/login")
 		.get(function (req, res) {
@@ -202,7 +199,7 @@ module.exports = function (app, db) {
 				
 				searchItunes(searchParams, function (err, data) {
 					if (err) {
-					    console.log (err);
+					    //console.log (err);
 					    res.send("no data");
 					    return;
 					}
@@ -214,7 +211,7 @@ module.exports = function (app, db) {
 						image: data.results[0].artworkUrl100,
 						preview: data.results[0].previewUrl
 					};
-					console.log(data_info.artist + ": " + data_info.title);
+					//console.log(data_info.artist + ": " + data_info.title);
 					
 					var files = db.collection("files");
 					files.find({_id: ObjectId(userID), songs: {$elemMatch: data_info}}).toArray(function (err, docs) {
@@ -226,8 +223,6 @@ module.exports = function (app, db) {
 							res.send("duplicate");
 						}
 					});
-					
-					
 				});
 			}
 			else if (title[1] === "album") {
@@ -240,7 +235,7 @@ module.exports = function (app, db) {
 				
 				searchItunes(searchParams, function (err, data) {
 					if (err) {
-					    console.log (err);
+					    //console.log (err);
 					    res.send("no data");
 					    return;
 					}
@@ -251,7 +246,7 @@ module.exports = function (app, db) {
 						title: data.results[0].collectionName,
 						image: data.results[0].artworkUrl100,
 					};
-					console.log(data_info.artist + ": " + data_info.title);
+					//console.log(data_info.artist + ": " + data_info.title);
 					
 					var files = db.collection("files");
 					files.find({_id: ObjectId(userID), albums: {$elemMatch: data_info}}).toArray(function (err, docs) {
@@ -277,7 +272,6 @@ module.exports = function (app, db) {
 		var newPass = validator.escape(req.body.newPass);
 		var clients = db.collection("clients");
 		clients.find({"_id": ObjectId(req.body.userID)}).toArray(function (err, docs) {
-			console.log(oldPass);
 			
 			// compare old password to new password
 			bcrypt.compare(validator.escape(oldPass), docs[0].pass, function(err, isPasswordMatch) {
@@ -306,7 +300,6 @@ module.exports = function (app, db) {
 		
 		clients.find({"_id": ObjectId(requesterID)}).toArray(function (err, info) {
 			var requesterEmail = info[0]["email"];
-			console.log(requesterEmail);
 			
 			files.find({"_id": ObjectId(ownerID)}).toArray(function (err, docs) {
 				var name = "";
