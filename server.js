@@ -2,7 +2,7 @@
 
 var express = require("express");
 var session = require("express-session");
-require("node-env-file")(".env");
+//require("node-env-file")(".env");
 var routes = require("./app/routes/index.js");
 var bodyParser = require("body-parser");
 var mongo = require("mongodb").MongoClient;
