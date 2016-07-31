@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 
 function headers (data) {
-    if (window.location.href == "https://mp3trade-bartowski20.c9users.io/") {
+    if (window.location.href == "https://mp3trade.herokuapp.com/") {
        if (data["_id"]) {
             $("#header").html(header1);
         }
@@ -39,7 +39,7 @@ function headers (data) {
         $(".header-home").css({"background-color": "darkgray"});
     } 
    
-    else if (window.location.href == "https://mp3trade-bartowski20.c9users.io/all" || window.location.href == "https://mp3trade-bartowski20.c9users.io/all#album") {
+    else if (window.location.href == "https://mp3trade.herokuapp.com/all") {
         if (data["_id"]) {
             $("#header").html(header1);
             $(".header-all").css({"background-color": "darkgray"});
@@ -49,22 +49,22 @@ function headers (data) {
         }
     }
    
-    else if (window.location.href == "https://mp3trade-bartowski20.c9users.io/my") {
+    else if (window.location.href == "https://mp3trade.herokuapp.com/my") {
        $("#header").html(header1);
        $(".header-my").css({"background-color": "darkgray"});
     } 
    
-    else if (window.location.href == "https://mp3trade-bartowski20.c9users.io/signup") {
+    else if (window.location.href == "https://mp3trade.herokuapp.com/signup") {
        $("#header").html(header2);
        $(".header-signup").css({"background-color": "darkgray"});
     } 
    
-    else if (window.location.href == "https://mp3trade-bartowski20.c9users.io/login") {
+    else if (window.location.href == "https://mp3trade.herokuapp.com/login") {
        $("#header").html(header2);
        $(".header-login").css({"background-color": "darkgray"});
     } 
    
-    else if (window.location.href == "https://mp3trade-bartowski20.c9users.io/settings") {
+    else if (window.location.href == "https://mp3trade.herokuapp.com/settings") {
        $("#header").html(header1);
        $(".header-settings").css({"background-color": "darkgray"});
     } 
