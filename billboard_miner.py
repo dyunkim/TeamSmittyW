@@ -25,6 +25,6 @@ def miner(url):
 
   return song_info
 
-songs = miner("https://www.billboard.com/charts/year-end/2015/hot-rap-songs")
-
-print(songs)
+if __name__ == "__main__":
+  songs = miner("https://www.billboard.com/charts/year-end/2015/hot-rap-songs")
+  print(songs)
