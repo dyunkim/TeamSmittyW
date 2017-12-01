@@ -27,6 +27,7 @@ def getSongPops(song_list):
                 print("Query: %s" % r.url)
             else:
                 json = r.json()["tracks"]["items"][0]
+                print(json)
                 song_dict["popularity"] = json["popularity"]
                 song_dict["song_name"] = json["name"]
                 artist_list = []
