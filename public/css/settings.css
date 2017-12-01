@@ -1,0 +1,55 @@
+.update-profile {
+    font-size: 35px;
+    margin-left: 10%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.update-password {
+    font-size: 35px;
+    margin-left: 10%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+#name-input {
+    width: 80%;
+    margin-left: 10%;
+}
+.name-text {
+    margin-left: 10%;
+}
+#city-input {
+    width: 80%;
+    margin-left: 10%;
+}
+.city-text {
+    margin-left: 10%;
+}
+#state-input {
+    width: 80%;
+    margin-left: 10%;
+}
+.state-text {
+    margin-left: 10%;
+}
+#oldpass-input {
+    width: 80%;
+    margin-left: 10%;
+}
+.oldpass-text {
+    margin-left: 10%;
+}
+#newpass-input {
+    width: 80%;
+    margin-left: 10%;
+}
+.newpass-text {
+    margin-left: 10%;
+}
+.save-btn {
+    margin-top: 30px;
+    margin-left: 10%;
+}
+.bottom {
+    margin-bottom: 60px;
+}

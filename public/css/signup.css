@@ -1,0 +1,43 @@
+.signup-title {
+    font-size: 35px;
+    margin-left: 10%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+#name-input {
+    width: 80%;
+    margin-left: 10%;
+}
+.name-text {
+    margin-left: 10%;
+}
+#email-input {
+    width: 80%;
+    margin-left: 10%;
+}
+.email-text {
+    margin-left: 10%;
+}
+#password-input {
+    width: 80%;
+    margin-left: 10%;
+}
+.password-text {
+    margin-left: 10%;
+}
+
+#signup-btn {
+    margin-top: 30px;
+    margin-left: 10%;
+}
+.login-btn {
+   background-color: darkgray;
+   border: 1px solid white;
+   margin-top: 30px;
+   color: black;
+}
+
+#flash {
+    margin-left: 10%;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Music Hits</title>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+		<link rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' />
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="/public/css/main.css" type="text/css" />
+		<!--<link rel="stylesheet" href="/public/css/header.css" type="text/css" />-->
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script type='text/javascript' src="/controllers/uploadSong.js"></script>
+		<!--<script type='text/javascript' src="/controllers/runPython.js"></script>-->
+	</head>
+	
+	<body class="background fluid-container">
+		<div id="header"></div>
+		
+		<div class="main">
+			<h1 class="main-title">Sexy Title</h1>
+			<!--<div class="row">-->
+			<!--	<i class="main-icon fa fa-laptop" aria-hidden="true"></i>-->
+			<!--	<i class="main-icon fa fa-arrows-h" aria-hidden="true"></i>-->
+			<!--	<i class="main-icon fa fa-file-audio-o" aria-hidden="true"></i>-->
+			<!--	<i class="main-icon fa fa-arrows-h" aria-hidden="true"></i>-->
+			<!--	<i class="main-icon fa fa-laptop" aria-hidden="true"></i>-->
+			<!--</div>-->
+			
+			<div class="main-text">
+				<p>Will your favorite song become the next big hit??</p>
+			</div>
+	
+			
+			<form method="POST" action="analyzeSong" enctype="multipart/form-data">
+				<div class="form-group upload-choose">
+					<div class="input-group input-file">
+						<input type="text" class="form-control" placeholder='Choose a file...' />
+						<span class="input-group-btn">
+				        	<button class="btn btn-default btn-choose" type="button">Choose</button>
+				    	</span>
+					</div>
+				</div>
+				
+				<div class="form-group upload-submit">
+					<button type="submit" class="btn btn-primary pull-right">Submit</button>
+					<button type="reset" class="btn btn-danger pull-left">Reset</button>
+				</div>
+			</form>
+			
+		</div>
+	</body>
+</html>
