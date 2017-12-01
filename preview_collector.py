@@ -9,7 +9,7 @@ def download_demos():
   songs_2015 = b_m.miner("https://www.billboard.com/charts/year-end/2015/hot-rap-songs")
   apple_api = "https://itunes.apple.com/search?entity=song&term="
 
-  for song_item in songs_2016:
+  for song_item in songs_2015:
     #print(song_item['rank']+" "+song_item['song']+" "+song_item['artist'])
 
     if int(song_item['rank']) < 10:

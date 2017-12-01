@@ -1,7 +1,7 @@
 import requests
 import billboard_miner
 import csv
-api_token = "Bearer BQA0CEOidRj4hYYlmluSx-vHOu6o_hW34EK7N1NYIN0JpJhJBHqzJagva7AkSzE3JS4G0yoMEHzHfJMU9pd5UHRPYesGCfcx2xb9G4NWZhuTuZ63gMRClBrQw9OKgVg1nt8v0QZG1fMxmgg__ik"
+api_token = "Bearer BQC6l3ecHCsux24jeiPPf-AzDjFB0uDrXI0nZtBc1g4KEE7S03nwVahI-mBn9bqlgKIiw6xbusMfwXP2SKw3zWYzROsG1iqyLVZAIg-afDc1ApzUBtgWo5jscBATHc1xPYXHfF3MF3aVjEx6684"
 
 def getSongPops(song_list):
     base_url = "https://api.spotify.com/v1/search"
@@ -37,14 +37,14 @@ def getSongPops(song_list):
     return popularity_list
 
 def dictToCSV(dictionaryList):
-    with open('data.csv', 'w') as file:
+    with open('data2.csv', 'w') as file:
         fieldnames = ['song_name', 'artists', 'popularity']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         for i in dictionaryList:
             writer.writerow(i)
 
-songs = billboard_miner.miner("https://www.billboard.com/charts/year-end/2015/hot-rap-songs")
+songs = billboard_miner.miner("https://www.billboard.com/charts/year-end/2016/hot-rap-songs")
 # print(songs)
 
 temp = [{"artist": "drake", "song_name": "hotline bling"}]
