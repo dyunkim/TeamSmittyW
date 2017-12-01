@@ -12,53 +12,23 @@
 	font-size: 50px;
 	font-family: "Montserrat";
 }
-.main-icon {
-	color: indigo;
-	font-size: 30px;
-}
 .main-text {
 	font-size: 30px;
 	text-align: center;
 	margin-top: 60px;
 	margin-bottom: 50px;
 }
-.main-songs {
-	margin-bottom: 40px;
-}
-.main-albums {
-	margin-bottom: 60px;
-}
-.songs-button {
+.upload-choose {
 	border: 2px solid gray;
 	border-radius: 5px;
-	background-color: darkorange;
 	width: 30%;
+	margin-left: 35%;
 }
-.songs-button:hover {
-	background-color: darkorange;
+.upload-choose:hover {
 	border-color: indigo;
 }
-.albums-button {
-	border: 2px solid gray;
-	border-radius: 5px;
-	background-color: darkorange;
+.upload-submit {
 	width: 30%;
-}
-.albums-button:hover {
-	background-color: darkorange;
-	border-color: indigo;
+	margin-left: 35%;
 }
 
-/*All Files styling*/
-.songs {
-	text-align: center;
-}
-.songs-title {
-	color: #D77A1E;
-}
-.albums {
-	text-align: center;
-}
-.albums-title {
-	color: #D77A1E;
-}
